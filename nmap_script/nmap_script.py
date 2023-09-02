@@ -9,8 +9,8 @@ def help():
     print('\nnscript is a tool for running various nmap configs'
             '\n\nFormat: nscript [option] [ip address] [port]'
             '\nPort number is not required.'
-            '\nProt can be single or multipule. If multipul, seperate with a ","'
-            '\nEx: 80 or 80, 443 or 80,443 All are valid'
+            '\nPort ex: 80 or 80, 443 or 80,443'
+            '\n'
             '\n\nOptions:'
             '\n\t-h: Prints this help statment.'
             '\n\t 1: Runs nmap with assume host is alive option and top 100 ports.'
@@ -36,7 +36,7 @@ def port_check(port):
     if len(port) == 1:
         port = port[0].split(',')
     for port_num in port:
-        if int(port_num.strip(',')) > 0 and int(port_num(',')) <= 65535:
+        if int(port_num.strip(',')) > 0 and int(port_num.strip(',')) <= 65535:
             continue
         else:
             print('\nInvalid port given\n')
