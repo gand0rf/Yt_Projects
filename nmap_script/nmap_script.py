@@ -46,12 +46,14 @@ def port_check(port):
 
 if __name__ == '__main__':
     try:
-        if len(sys.argv) < 3:
-            print('\nPlease verify your input\n')
+        if len(sys.argv) < 2:
             help()
             sys.exit()
 
         if sys.argv[1] != '-h':
+            if len(sys.argv) < 3:
+                help()
+                sys.exit()
 
             selection = sys.argv[1]
 
