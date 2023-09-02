@@ -8,8 +8,9 @@ import ipaddress
 def help():
     print('\nnscript is a tool for running various nmap configs'
             '\n\nFormat: nscript [option] [ip address] [port]'
-            '\nPort number is not required. If one is not'
-            '\nprovided, port will be set to "-" for all ports'
+            '\nPort number is not required.'
+            '\nProt can be single or multipule. If multipul, seperate with a ","'
+            '\nEx: 80 or 80, 443 or 80,443 All are valid'
             '\n\nOptions:'
             '\n\t-h: Prints this help statment.'
             '\n\t 1: Runs nmap with assume host is alive option and top 100 ports.'
