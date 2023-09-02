@@ -34,7 +34,6 @@ def ip_check(ip):
 def port_check(port):
     if len(port) == 1:
         port = port[0].split(',')
-        print(port)
     for port_num in port:
         if int(port_num.strip(',')) > 0 and int(port_num(',')) <= 65535:
             continue
