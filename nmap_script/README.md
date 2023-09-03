@@ -1,5 +1,7 @@
 A scirpt for helping to automate nmap usage.
 
+Youtube video: https://youtu.be/xgRX1BbPM4k
+
 Instal:
  1. Click on the script in your browser and download the raw code locally.
   
