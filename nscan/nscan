@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+
+import subprocess, sys
+
+target = sys.argv[1]
+p_full = []
+p_detailed = []
+
+def first():
+    print('\nRunning Fast scan...')
+    fast = subprocess.Popen(['nmap','-Pn','-F',f'{target}'], stdout=subprocess.PIPE)
+    fast.wait()
+    for line in fast.communicate()[0].split(b'\n'):
+        if b'/tcp' in line:
+            print(f'\t{line.decode("utf-8")}')
+
+def second():
+    print('\nRunning Full scan...')
+    full = subprocess.Popen(['nmap','-Pn','-p-',f'{target}'], stdout=subprocess.PIPE)
+    full.wait()
+    for line in full.communicate()[0].split(b'\n'):
+        if b'/tcp' in line:
+            print(f'\t{line.decode("utf-8")}')
+            p_detailed.append(line.split(b'/')[0].decode('utf-8'))
+
+def third():
+    print('\nRunning Full Detailed Scan...')
+    if p_detailed != None:
+        detailed = subprocess.Popen(['nmap','-Pn','-sC','-sV','-p',f'{",".join(p_detailed)}',f'{target}'])
+        detailed.wait()
+
+first()
+second()
+third()
